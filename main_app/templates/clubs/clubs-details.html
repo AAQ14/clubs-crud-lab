@@ -5,6 +5,7 @@
 <p>country: {{club.country}}</p>
 <p>is there match: {{club.is_there_match}}</p>
 <p>players num: {{club.players_num}}</p>
+<p><strong>matches</strong></p>
 {% if matches %}
     {% for match in matches %}
         <p>{{match.team1.name}} VS {{match.team2.name}} </p>
