@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Clubs list</h1>
+    <form action="{% url "clubs-new" %}" method='get'>
+        <button>ADD NEW CLUB</button>
+    </form>
+    {% for club in clubs%}
+        <p>name: {{club.name}}</p>
+        <p>country: {{club.country}}</p>
+        <a href="{% url "club-details" club.id%}">details</a>
+        <hr/>
+    {% endfor %}
+{% endblock  %}

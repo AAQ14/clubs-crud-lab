@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Add new club</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% comment %} <label for="name">name: </label>
+        <input type="text" id="name" name="name" value={{club.name}}>
+
+        <label for="country">country: </label>
+        <input type="text" id="country" name="country" value={{club.country}}>
+
+        <label for="is_there_match">is there match: </label>
+        <input {% if club.is_there_match %}checked{% endif %} type="checkbox" id="is_there_match" name="is_there_match" >
+
+        <label for="match_time">match time: </label>
+        <input type="datetime-local" id="match_time" name="match_time" value={{club.match_time}}>
+
+        <label for="players_num">players total number: </label>
+        <input type="number" id="players_num" name="players_num" min="10" value={{club.players_num}}> {% endcomment %}
+        {{form.as_p}}
+
+        <button>submit</button>
+    </form>
+    <form action="/" method='get'>
+        <button>BACK</button>
+    </form>
+{% endblock  %}

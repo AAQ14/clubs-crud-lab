@@ -1,0 +1,25 @@
+{% extends "base.html" %} 
+{% block body %}
+<h1>Details</h1>
+<p>name: {{club.name}}</p>
+<p>country: {{club.country}}</p>
+<p>is there match: {{club.is_there_match}}</p>
+<p>players num: {{club.players_num}}</p>
+{% if matches %}
+    {% for match in matches %}
+        <p>{{match.team1.name}} VS {{match.team2.name}} </p>
+        <hr/>
+    {% endfor %}
+{% endif %}
+<form action="{% url "delete-club" club.pk%}" method='post'>
+    {% csrf_token %}
+    <button>DELETE</button>
+</form>
+<form action="{% url "clubs-update" club.pk %}" method='get'>
+    <button>Update</button>
+</form>
+<form action="/" method='get'>
+    <button>BACK</button>
+</form> 
+
+{% endblock %}

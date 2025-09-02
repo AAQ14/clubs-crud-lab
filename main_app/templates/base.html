@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="/">HOME</a>
+        <a href="{% url "clubs-new" %}">Add club</a>
+        <a href="{% url "all-matches" %}">matches</a>
+        <a href="{% url "match-new" %}">Add match</a>
+        {% block body %}{% endblock  %}
+    </nav>
+</body>
+</html>

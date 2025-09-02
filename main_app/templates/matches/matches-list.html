@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>All Matches</h1>
+    {% for match in matches %}
+         <h3> {{match.team1.name}} VS {{match.team2.name}}</h3>
+         <a href="{% url "match-details" match.pk %}"><h3>details</h3></a>
+         <hr/>
+    {% endfor %}
+{% endblock  %}

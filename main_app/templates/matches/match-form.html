@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Add new match</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>submit</button>
+    </form>
+    <form action="{% url "all-matches" %}" method="get">
+        <button>BACK</button>
+    </form>
+{% endblock  %}

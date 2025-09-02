@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Match details</h1>
+    <p>Team1: {{match.team1.name}}</p>
+    <p>Team2: {{match.team2.name}}</p>
+    <p>Date: {{match.date}}</p>
+    <p>Time: {{match.time}}</p>
+    <p>Stadium: {{match.stadium}}</p>
+    <form action="{% url "update-match" match.pk%}" method="get">
+        <button>UPDATE</button>
+    </form>
+    <form action="{% url "delete-match" match.pk %}" method='post'>
+        {% csrf_token %}
+        <button>DELETE</button>
+    </form>
+    <form action="{% url "all-matches" %}" method="get">
+        <button>BACK</button>
+    </form>
+{% endblock  %}
